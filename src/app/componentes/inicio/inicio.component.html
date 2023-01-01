@@ -1,0 +1,21 @@
+<section class="inicio rounded-2 container-fluid p-0">
+    <img [src]="dataPortafolio.backImage" class="inicio__banner">
+    <div class="inicio__informacion border-top border-secondary row w-100 m-0">
+        <div class="col col-md-4 position-relative">
+            <div class="inicio__informacion--perfil">
+                <img [src]="dataPortafolio.image" alt="foto_perfil" class="rounded-circle">
+                <div id="inicio__informacion--editar_perfil" class="btn btn-outline-secondary">
+                    <i class="fa fa-pen"></i>
+                </div>
+            </div>
+            <div class="inicio__informacion--descripcion">
+                <h3 class="text-center">{{ dataPortafolio.name }}</h3>
+                <h5>{{ dataPortafolio.position }}</h5>
+                <h5>{{ dataPortafolio.ubication }}</h5>
+                <button class="btn btn-primary me-2">Tengo interés en</button>
+                <button class="btn btn-secondary me-2">Añadir sección</button>
+                <button class="btn btn-secondary me-2">Más</button>
+            </div>
+        </div>
+    </div>
+</section>

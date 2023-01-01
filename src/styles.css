@@ -1,1 +1,122 @@
-/* You can add global styles to this file, and also import other style files */
+.iconos-redes{
+    font-size: 30px;
+}
+
+::-webkit-scrollbar{
+    width: 9px;
+    background: rgba(0,0,0,0.4);
+}
+
+::-webkit-scrollbar-thumb{
+    width: 9px;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.2);
+}
+
+.cuerpo{
+    background: rgb(170, 170, 170);
+}
+
+.inicio{
+    height: 85vh;
+    border: none;
+}
+
+.inicio__banner{
+    height: 65%;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    object-fit: cover;
+}
+
+.inicio__informacion{
+    min-height: 35%;
+    border: 1px solid grey;
+    border-radius: 0 0 5px 5px;
+}
+
+.inicio__informacion--perfil{
+    width: 100%;
+    position: relative;
+    height: 50px;
+    padding: 5px;
+}
+
+.inicio__informacion--perfil > img{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    position: absolute;
+    margin-left: calc(50% - 75px);
+    bottom: 0;
+}
+
+#inicio__informacion--editar_perfil{
+    position: absolute;
+    right: 0;
+}
+
+.acercade--titulo{
+    padding: 5px;
+    position: relative;
+}
+
+.acercade--titulo h3{
+    display: inline-block;
+}
+
+#acercade--editar{
+    position: absolute;
+    right: 0;
+}
+
+.acercade--contenido{
+    padding: 5px;
+}
+
+main section {
+    min-height: 10vh;
+    height: auto;
+    background: white;
+    border: 1px solid grey;
+    padding: 5px 0px;
+}
+
+section img{
+    margin: 0 auto;
+}
+
+.inicio__informacion__foto{
+    width: 160px;
+    height: 160px;
+    background: rgb(170, 170, 170);
+}
+
+.inicio__informacion__perfil{
+    height: fit-content;
+    width: 100%;
+    margin-top: 85px;
+}
+
+.titulo_boton_sumar{
+    display: inline-block;
+}
+
+.skills__contenedores{
+    width: 80%;
+    margin: 0 auto !important;
+    position: relative;
+}
+
+.boton__sumar{
+    position: absolute;
+    right: 0;
+}
+
+.card{
+    justify-content: center;
+}
+
+.card img{
+    object-fit: cover;
+}

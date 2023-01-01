@@ -1,0 +1,28 @@
+<section class="proyectos container-fluid rounded-2">
+    <div class="position-relative">
+        <h2 class="titulo_boton_sumar">Proyectos</h2>
+        <div id="" class="btn btn-outline-secondary boton__sumar">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+
+    <div class="container-fluid p-2">
+
+        <ul>
+            <li *ngFor="let itemProject of listProjects">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{itemProject.name}}</h5>
+                        <p class="card-text">{{itemProject.description}}</p>
+                        <a [href]="itemProject.link" class="btn btn-primary">Página Web</a>
+                    </div>
+                    <div class="btn btn-outline-secondary editar-proyecto">
+                        <i class="fa fa-pen"></i>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+    </div>
+</section>

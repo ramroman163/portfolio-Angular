@@ -1,0 +1,62 @@
+<section class="experiencia container-fluid rounded-2">
+    <div class="position-relative">
+        <h2 class="titulo_boton_sumar">Experiencia</h2>
+        <div id="" class="btn btn-outline-secondary boton__sumar">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <ul>
+            <li *ngFor="let itemExperience of listExperiences">
+                <div class="card pt-2 pb-2" style="max-width: 540px; min-height: 210px;">
+                    <div class="row g-0">
+                        <div class="col-md-4 d-flex">
+                            <img [src]="itemExperience.img" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{itemExperience.position}}</h5>
+                                <p class="card-text">{{itemExperience.company}}</p>
+                                <p class="card-text"> <time>{{itemExperience.start}}</time> - <time>{{itemExperience.end}}</time></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn btn-outline-secondary editar-educacion">
+                        <i class="fa fa-pen"></i>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+<!-- </section>
+<section class="educacion container-fluid rounded-2"> -->
+    <div class="position-relative">
+        <h2 class="titulo_boton_sumar">Educacion</h2>
+        <div id="" class="btn btn-outline-secondary boton__sumar">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="container-fluid p-2">
+        <ul>
+            <li *ngFor="let itemEducation of listEducation">
+                <div class="card pt-2 pb-2" style="max-width: 540px; min-height: 210px;">
+                    <div class="row g-0">
+                        <div class="col-md-4 d-flex">
+                            <img [src]="itemEducation.img" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"> {{itemEducation.school}} </h5>
+                                <p class="card-text"> {{itemEducation.title}}, {{itemEducation.career}} </p>
+                                <p class="card-text"> <time>{{itemEducation.start}}</time> - <time>{{itemEducation.end}}</time> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn btn-outline-secondary editar-educacion">
+                        <i class="fa fa-pen"></i>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,48 @@
+{
+    "name": "Román Martinez",
+    "position": "Estudiante",
+    "ubication": "Buenos Aires, Argentina",
+    "about": "Estudiante de 7mo año de Escuela Técnica con aspiración a ser Ingeniero en Informática.",
+    "backImage": "https://fondosmil.com/fondo/36779.jpg",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ7kH5Jo90U7alI93rZ9Z3gG07URYouCXDkQ&usqp=CAU",
+    "experiences":[
+      {
+        "position": "Fullstack Developer",
+        "company": "Google",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL3ZdwUvd67LHdswKJ6Uw6pzyO3uqg0Ih1uQ&usqp=CAU",
+        "start": "Marzo 2023",
+        "end": "Actualidad"
+      }
+    ],
+    "education":[
+      {
+        "school": "Instituto Padre Elizalde",
+        "img": "data:image/png;base64,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",
+        "title": "Técnico",
+        "career": "Tecnicatura en Informática",
+        "start": "2017",
+        "end": "2023"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Resolución de problemas",
+        "progress": 75
+      },
+      {
+        "name": "Aprendizaje",
+        "progress": 80
+      },
+      {
+        "name": "Inglés",
+        "progress": 65
+      }
+    ],
+    "achievements": [
+      {
+        "name": "Chipasat",
+        "description": "Satelite tipo cansat cuya misión era la de explorar posibles ambientes habitables para el ser humano",
+        "link": "https://chipasat.netlify.app/"
+      }
+    ]
+}
