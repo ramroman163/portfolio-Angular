@@ -18,7 +18,7 @@
 }
 
 .inicio{
-    height: 85vh;
+    min-height: 85vh;
     border: none;
 }
 
@@ -31,6 +31,7 @@
 
 .inicio__informacion{
     min-height: 35%;
+    height: fit-content;
     border: 1px solid grey;
     border-radius: 0 0 5px 5px;
 }
@@ -54,24 +55,6 @@
 #inicio__informacion--editar_perfil{
     position: absolute;
     right: 0;
-}
-
-.acercade--titulo{
-    padding: 5px;
-    position: relative;
-}
-
-.acercade--titulo h3{
-    display: inline-block;
-}
-
-#acercade--editar{
-    position: absolute;
-    right: 0;
-}
-
-.acercade--contenido{
-    padding: 5px;
 }
 
 main section {
@@ -119,4 +102,19 @@ section img{
 
 .card img{
     object-fit: cover;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    border: 1px solid grey;
+}
+
+input:focus{
+    border: 1px solid grey;
+    outline: none;
+}
+
+.inicio__informacion--descripcion{
+    height: auto;
 }

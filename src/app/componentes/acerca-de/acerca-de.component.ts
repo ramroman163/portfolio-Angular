@@ -17,4 +17,18 @@ export class AcercaDeComponent implements OnInit{
       this.dataPortafolio = data;
     })
   }
+
+  mostrarInputAcercaDe : boolean = true;
+  valorInput : string = "";
+
+  mostrarInput(){
+    this.mostrarInputAcercaDe = false;
+  }
+
+  guardarValorInput(event : Event){
+    this.mostrarInputAcercaDe = true;
+    this.valorInput = (<HTMLInputElement>event.target).value;
+    this.dataPortafolio.about = this.valorInput;
+  }
+
 }

@@ -17,4 +17,31 @@ export class ProyectosComponent implements OnInit{
       this.listProjects = data.achievements;
     })
   }
+
+  eliminarProyecto(proyecto : HTMLDivElement){
+    proyecto.remove();
+  };
+
+  editarInputs(inputs : Array<HTMLInputElement>, project : any){
+    inputs.forEach((input) => {
+      !input.hidden ? input.hidden = true : input.hidden = false;
+      
+      if(input.name == "editNombre"){
+        project.name = input.value;
+      }
+
+      if(input.name == "editDescripcion"){
+        project.description = input.value;
+      }
+
+      if(input.name == "editLink"){
+        project.link = input.value;
+      }
+
+    })
+  }
+
+  ocultarInput(input : HTMLInputElement){
+    input.hidden = true;
+  }
 }

@@ -1,0 +1,27 @@
+.acercade--titulo{
+    padding: 5px;
+    position: relative;
+}
+
+.acercade--titulo h3{
+    display: inline-block;
+}
+
+#acercade--editar{
+    position: absolute;
+    right: 0;
+}
+
+.acercade--contenido{
+    padding: 5px;
+}
+
+.acercade--parrafo{
+    margin-bottom: 5px;
+}
+
+.cambiarAcercaDe{
+    margin: 5px 0px 5px 0px;
+    padding: 5px;
+    width: 50%;
+}

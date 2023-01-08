@@ -1,4 +1,4 @@
-.editar-proyecto{
+.eliminar-proyecto{
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -6,4 +6,30 @@
 
 ul{
     list-style: none;
+}
+
+.card{
+    max-width: 540px;
+}
+
+.card-title{
+    margin-bottom: 10px;
+}
+
+.card-text{
+    margin: 10px 0px;
+}
+
+.card-link{
+    margin: 10px 0px;
+}
+
+input{
+    padding: 5px;
+}
+
+.boton-editar{
+    position: absolute;
+    bottom: 5px;
+    right: 50px;
 }

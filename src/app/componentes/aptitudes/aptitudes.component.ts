@@ -16,4 +16,17 @@ export class AptitudesComponent implements OnInit{
       this.listSkills = data.skills;
     })
   }
+  
+  mostrarInput(input : HTMLInputElement, barraProgreso : HTMLDivElement){
+    !input.hidden ? input.hidden = true : input.hidden = false;
+    this.listSkills.progress = input.value;
+  }
+
+  ocultarInput(input : HTMLInputElement){
+    input.hidden = true;
+  };
+
+  eliminarSkill(skill : HTMLDivElement){
+    skill.remove();
+  };
 }

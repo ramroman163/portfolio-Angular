@@ -19,4 +19,38 @@ export class ExperienciaYEducacionComponent implements OnInit {
       this.listExperiences = data.experiences;
     });
   }
+
+  ocultarInput(input : HTMLInputElement){
+    input.hidden = true;
+  }
+
+  editarEducacion(educaciones : Array<HTMLInputElement>, item : any){
+    educaciones.forEach((educacion) => {
+      !educacion.hidden ? educacion.hidden = true : educacion.hidden = false;
+
+      if(educacion.name == "editSchool"){
+        item.school = educacion.value;
+      }
+
+      if(educacion.name == "editTitle"){
+        item.title = educacion.value;
+      }
+
+      if(educacion.name == "editCareer"){
+        item.career = educacion.value;
+      }
+
+      if(educacion.name == "editStartEducation"){
+        item.start = educacion.value;
+      }
+
+      if(educacion.name == "editEndEducation"){
+        item.end = educacion.value;
+      }
+
+      if(educacion.name == "editImg"){
+        item.img = educacion.value;
+      }
+    })
+  }
 }

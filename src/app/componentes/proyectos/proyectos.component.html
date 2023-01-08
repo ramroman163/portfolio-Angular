@@ -10,14 +10,26 @@
 
         <ul>
             <li *ngFor="let itemProject of listProjects">
-                <div class="card">
+                <div class="card" #proyecto>
                     <div class="card-body">
-                        <h5 class="card-title">{{itemProject.name}}</h5>
-                        <p class="card-text">{{itemProject.description}}</p>
-                        <a [href]="itemProject.link" class="btn btn-primary">Página Web</a>
+                        <div class="position-relative">
+                            <h5 class="card-title d-inline-block">{{ itemProject.name }}</h5>
+                        </div>
+                        <input type="text" name="editNombre" id="" #editarNombre [(ngModel)]=" itemProject.name "  [hidden]="true" (keydown.enter)="ocultarInput(editarNombre)">
+                        <div class="position-relative">
+                            <p class="card-text">{{ itemProject.description }}</p>
+                        </div>
+                        <input type="text" name="editDescripcion" id="" #editarDescripcion [(ngModel)]=" itemProject.description " [hidden]="true" (keydown.enter)="ocultarInput(editarDescripcion)">
+                        <div class="position-relative">
+                            <a [href]=" itemProject.link " class="btn btn-primary card-link">Página Web</a>
+                        </div>
+                        <input type="text" name="editLink" id="" #editarLink [(ngModel)]=" itemProject.link " [hidden]="true" (keydown.enter)="ocultarInput(editarLink)">
                     </div>
-                    <div class="btn btn-outline-secondary editar-proyecto">
+                    <div class="btn btn-outline-secondary boton-editar" (click)="editarInputs([editarNombre, editarDescripcion, editarLink], itemProject)">
                         <i class="fa fa-pen"></i>
+                    </div>
+                    <div class="btn btn-outline-secondary eliminar-proyecto" (click)=" eliminarProyecto(proyecto) ">
+                        <i class="fa-solid fa-trash"></i>
                     </div>
                 </div>
             </li>

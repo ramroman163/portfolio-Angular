@@ -1,0 +1,25 @@
+.boton-editar{
+    position: absolute;
+    margin-left: 10px;
+    right: 0px;
+    bottom: 6px;
+}
+
+input{
+    padding: 5px;
+}
+
+.contenedor-informacion{
+    height: auto;
+    min-height: 50px;
+}
+
+.inicio__informacion--descripcion h5{
+    display: inline-block;
+    margin-bottom: 0px;
+    margin-top: calc(25px - 1.25rem / 2);
+}
+
+.contendor-botones{
+    margin: 10px 0;
+}

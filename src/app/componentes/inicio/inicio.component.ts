@@ -17,4 +17,25 @@ export class InicioComponent implements OnInit{
       this.dataPortafolio = data;
     })
   }
+
+  editarPerfil(inputPerfil : HTMLInputElement) : void{
+    inputPerfil.hidden = false;
+    this.dataPortafolio.image = inputPerfil.value;
+  }
+
+  editarPosition(inputPosition : HTMLInputElement) : void {
+    inputPosition.hidden = false;
+    this.dataPortafolio.position = inputPosition.value;
+  }
+
+  editarUbication(inputUbication : HTMLInputElement) : void {
+    inputUbication.hidden = false;
+    this.dataPortafolio.ubication = inputUbication.value;
+  }
+
+  ocultarInput(input : HTMLInputElement){
+    input.hidden = true;
+  };
+
+
 }

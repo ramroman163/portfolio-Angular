@@ -7,3 +7,14 @@
 ul{
     list-style: none;
 }
+
+.edit-img{
+    position: absolute;
+    bottom: 11px;
+    left: 5px;
+}
+
+.contenedor-edit{
+    position: relative;
+    height: 48px;
+}

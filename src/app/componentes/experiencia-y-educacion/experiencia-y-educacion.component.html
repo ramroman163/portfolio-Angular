@@ -16,11 +16,15 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">{{itemExperience.position}}</h5>
+                                <input type="text">
                                 <p class="card-text">{{itemExperience.company}}</p>
+                                <input type="text">
                                 <p class="card-text"> <time>{{itemExperience.start}}</time> - <time>{{itemExperience.end}}</time></p>
+                                <input type="text"><input type="text">
                             </div>
                         </div>
                     </div>
+                    <input type="text" name="" id="">
                     <div class="btn btn-outline-secondary editar-educacion">
                         <i class="fa fa-pen"></i>
                     </div>
@@ -28,8 +32,6 @@
             </li>
         </ul>
     </div>
-<!-- </section>
-<section class="educacion container-fluid rounded-2"> -->
     <div class="position-relative">
         <h2 class="titulo_boton_sumar">Educacion</h2>
         <div id="" class="btn btn-outline-secondary boton__sumar">
@@ -39,21 +41,29 @@
     <div class="container-fluid p-2">
         <ul>
             <li *ngFor="let itemEducation of listEducation">
-                <div class="card pt-2 pb-2" style="max-width: 540px; min-height: 210px;">
+                <div class="card pt-2 pb-2" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-4 d-flex">
-                            <img [src]="itemEducation.img" class="img-fluid rounded-start" alt="...">
+                            <img [src]="itemEducation.img" class="img-fluid rounded-start p-2" alt="foto">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title"> {{itemEducation.school}} </h5>
-                                <p class="card-text"> {{itemEducation.title}}, {{itemEducation.career}} </p>
-                                <p class="card-text"> <time>{{itemEducation.start}}</time> - <time>{{itemEducation.end}}</time> </p>
+                                <h5 class="card-title"> {{ itemEducation.school }} </h5>
+                                <input type="text" [hidden]="true" name="" id="" #editSchool [(ngModel)]=" itemEducation.school " (keydown.enter)="ocultarInput(editSchool)">
+                                <p class="card-text"> {{ itemEducation.title }}, {{ itemEducation.career }} </p>
+                                <input type="text" [hidden]="true" name="" id="" #editTitle [(ngModel)]=" itemEducation.title " (keydown.enter)="ocultarInput(editTitle)">
+                                <input type="text" [hidden]="true" name="" id="" #editCareer [(ngModel)]=" itemEducation.career " (keydown.enter)="ocultarInput(editCareer)">
+                                <p class="card-text"> <time>{{ itemEducation.start }}</time> - <time>{{ itemEducation.end }}</time> </p>
+                                <input type="text" [hidden]="true" name="" id="" #editStartEducation [(ngModel)]=" itemEducation.start " (keydown.enter)="ocultarInput(editStartEducation)">
+                                <input type="text" [hidden]="true" name="" id="" #editEndEducation [(ngModel)]=" itemEducation.end " (keydown.enter)="ocultarInput(editEndEducation)">
                             </div>
                         </div>
                     </div>
-                    <div class="btn btn-outline-secondary editar-educacion">
-                        <i class="fa fa-pen"></i>
+                    <div class="position-relative contenedor-edit">
+                        <input type="text" #editImg class="edit-img" [hidden]="true" name="editImg" id="" [(ngModel)]=" itemEducation.img " (keydown.enter)="ocultarInput(editImg)">
+                        <div class="btn btn-outline-secondary editar-educacion" (click)="editarEducacion([editSchool, editTitle, editCareer, editStartEducation, editEndEducation, editImg], itemEducation)">
+                            <i class="fa fa-pen"></i>
+                        </div>
                     </div>
                 </div>
             </li>
