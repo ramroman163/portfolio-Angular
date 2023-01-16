@@ -5,6 +5,28 @@
     bottom: 6px;
 }
 
+.contenedor__editar-banner{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: auto;
+}
+
+.boton-editar-banner{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+}
+
+.editar-banner{
+    position: relative;
+    margin-top: 5px;
+    margin-right: 52px;
+    padding: 5px;
+    height: 38px;
+}
+
 input{
     padding: 5px;
 }
@@ -22,4 +44,101 @@ input{
 
 .contendor-botones{
     margin: 10px 0;
+}
+
+.inicio__informacion__foto{
+    width: 160px;
+    height: 160px;
+    background: rgb(170, 170, 170);
+}
+
+.inicio__informacion__perfil{
+    height: fit-content;
+    width: 100%;
+    margin-top: 85px;
+}
+
+.inicio{
+    min-height: 85vh;
+    border: none;
+}
+
+.inicio__banner{
+    max-height: 60vh;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    object-fit: cover;
+}
+
+.inicio__informacion{
+    min-height: 35%;
+    height: fit-content;
+    border: 1px solid grey;
+    border-radius: 0 0 5px 5px;
+}
+
+.inicio__informacion--perfil{
+    width: 100%;
+    position: relative;
+    height: 50px;
+    padding: 5px;
+}
+
+.inicio__informacion--perfil > img{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    position: absolute;
+    margin-left: calc(50% - 75px);
+    bottom: 0;
+}
+
+#inicio__informacion--editar_perfil{
+    position: absolute;
+    right: 0;
+}
+
+.inicio__informacion--descripcion{
+    height: auto;
+}
+
+@media screen and (max-width: 500px){
+
+    .inicio__informacion input{
+        margin-top: 10px;
+    }
+    
+    .contenedor-informacion h5{
+        padding-right: 57px;
+    }
+
+    .contendor-botones{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        height: 60%;
+        margin-top: 15px;
+    }
+    
+    .contendor-botones button{
+        margin-right: 0px !important;
+    }
+
+    .boton-editar{
+        height: 38px;
+        top: 12.5px;
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .inicio{
+        height: auto;
+    }
+
+    .inicio__banner{
+        height: 60vh;
+    }
+
+    
 }

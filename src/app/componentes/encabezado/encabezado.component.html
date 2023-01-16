@@ -1,13 +1,12 @@
 <header class="sticky-top border-bottom border-secondary">
     <nav class="navbar bg-light p-2">
         <div class="nav justify-content-start">
-            <a class="navbar-brand" href="#">
-                <img src="" class="d-inline-block align-text-top">
+            <a class="navbar-brand titulo-pag" href="#">
                 {{dataPortafolio.name}}
             </a>
         </div>
         <div class="nav justify-content-end">
-            <div class="d-flex flex-row me-2">
+            <div class="d-flex flex-row me-2 redes">
                 <a href="#" class="nav-link p-1 d-flex align-items-center">
                     <i class="fa-brands fa-linkedin iconos-redes"></i>
                 </a>
@@ -18,7 +17,38 @@
                     <i class="fa-brands fa-instagram iconos-redes"></i>
                 </a>
             </div>
-            <button class="btn btn-outline-primary" type="button">Login</button>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                    aria-expanded="false">Redes</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#" class="nav-link p-1 d-flex align-items-center">
+                            <div class="contenedor-icon">
+                                <i class="fa-brands fa-linkedin iconos-redes"></i>
+                            </div>
+                            Linkedin
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link p-1 d-flex align-items-center">
+                            <div class="contenedor-icon">
+                                <i class="fa-brands fa-github iconos-redes"></i>
+                            </div>
+                            Github
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link p-1 d-flex align-items-center">
+                            <div class="contenedor-icon">
+                                <i class="fa-brands fa-instagram iconos-redes"></i>
+                            </div>
+                            Instagram
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <button class="btn btn-outline-primary" type="button" (click)="mostrarLogin()">Login</button>
         </div>
     </nav>
+    <app-login [ocultarComponenteLogin]="ocultarLoginInput"></app-login>
 </header>

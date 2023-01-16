@@ -1,0 +1,28 @@
+.iconos-redes{
+    font-size: 30px;
+}
+
+.contenedor-icon{
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown{
+    display: none;
+}
+
+@media screen and (max-width: 425px) {
+    .redes{
+        display: none !important;
+    }
+    
+    .dropdown{
+        display: block;
+    }
+
+    .titulo-pag{
+        font-size: 18px;
+    }
+}

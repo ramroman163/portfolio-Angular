@@ -21,12 +21,11 @@ export class AcercaDeComponent implements OnInit{
   mostrarInputAcercaDe : boolean = true;
   valorInput : string = "";
 
-  mostrarInput(){
-    this.mostrarInputAcercaDe = false;
+  mostrarInput(input : HTMLInputElement){
+    !input.hidden ? input.hidden = true : input.hidden = false;
   }
 
   guardarValorInput(event : Event){
-    this.mostrarInputAcercaDe = true;
     this.valorInput = (<HTMLInputElement>event.target).value;
     this.dataPortafolio.about = this.valorInput;
   }

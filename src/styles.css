@@ -14,71 +14,20 @@
 }
 
 .cuerpo{
-    background: rgb(170, 170, 170);
-}
-
-.inicio{
-    min-height: 85vh;
-    border: none;
-}
-
-.inicio__banner{
-    height: 65%;
-    width: 100%;
-    border-radius: 5px 5px 0 0;
-    object-fit: cover;
-}
-
-.inicio__informacion{
-    min-height: 35%;
-    height: fit-content;
-    border: 1px solid grey;
-    border-radius: 0 0 5px 5px;
-}
-
-.inicio__informacion--perfil{
-    width: 100%;
-    position: relative;
-    height: 50px;
-    padding: 5px;
-}
-
-.inicio__informacion--perfil > img{
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    position: absolute;
-    margin-left: calc(50% - 75px);
-    bottom: 0;
-}
-
-#inicio__informacion--editar_perfil{
-    position: absolute;
-    right: 0;
+    /* background: rgb(170, 170, 170); */
+    background: #242F40;
 }
 
 main section {
     min-height: 10vh;
     height: auto;
     background: white;
-    border: 1px solid grey;
+    border: 1px solid #1C3144;
     padding: 5px 0px;
 }
 
 section img{
     margin: 0 auto;
-}
-
-.inicio__informacion__foto{
-    width: 160px;
-    height: 160px;
-    background: rgb(170, 170, 170);
-}
-
-.inicio__informacion__perfil{
-    height: fit-content;
-    width: 100%;
-    margin-top: 85px;
 }
 
 .titulo_boton_sumar{
@@ -101,7 +50,7 @@ section img{
 }
 
 .card img{
-    object-fit: cover;
+    object-fit: contain;
 }
 
 input {
@@ -113,8 +62,4 @@ input {
 input:focus{
     border: 1px solid grey;
     outline: none;
-}
-
-.inicio__informacion--descripcion{
-    height: auto;
 }

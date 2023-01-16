@@ -18,30 +18,39 @@ export class ProyectosComponent implements OnInit{
     })
   }
 
-  eliminarProyecto(proyecto : HTMLDivElement){
-    proyecto.remove();
-  };
+  editarInput(inputs : Array<HTMLInputElement>, index : number){
 
-  editarInputs(inputs : Array<HTMLInputElement>, project : any){
     inputs.forEach((input) => {
       !input.hidden ? input.hidden = true : input.hidden = false;
       
-      if(input.name == "editNombre"){
-        project.name = input.value;
+      if(input.name == "editarNombre"){
+        this.listProjects[index].name = input.value;
       }
 
-      if(input.name == "editDescripcion"){
-        project.description = input.value;
+      if(input.name == "editarDescripcion"){
+        this.listProjects[index].progress = input.value;
       }
 
-      if(input.name == "editLink"){
-        project.link = input.value;
+      if(input.name == "editarLink"){
+        this.listProjects[index].description = input.value;
       }
-
     })
   }
 
   ocultarInput(input : HTMLInputElement){
     input.hidden = true;
+  };
+
+  eliminarProyecto(i : number){
+    this.listProjects.splice(i, 1);
+  };
+
+  sumarProyecto(){
+    if(this.listProjects.length < 5){
+      this.listProjects.push({"name": "lol", "description": "om", "link": "#"});
+    }
+    else{
+      alert("Se excedió el límite de Aptitudes");
+    }
   }
 }

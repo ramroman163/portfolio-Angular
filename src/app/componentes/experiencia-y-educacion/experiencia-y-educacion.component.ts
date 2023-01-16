@@ -24,33 +24,89 @@ export class ExperienciaYEducacionComponent implements OnInit {
     input.hidden = true;
   }
 
-  editarEducacion(educaciones : Array<HTMLInputElement>, item : any){
-    educaciones.forEach((educacion) => {
-      !educacion.hidden ? educacion.hidden = true : educacion.hidden = false;
+  editarExperiencia(inputsExperiencias : Array<HTMLInputElement>, index : number){
+    inputsExperiencias.forEach((input) => {
+      !input.hidden ? input.hidden = true : input.hidden = false;
 
-      if(educacion.name == "editSchool"){
-        item.school = educacion.value;
+      if(input.name == "editImgExperience"){
+        this.listExperiences[index].img = input.value;
       }
 
-      if(educacion.name == "editTitle"){
-        item.title = educacion.value;
+      if(input.name == "editPosition"){
+        this.listExperiences[index].position = input.value;
       }
 
-      if(educacion.name == "editCareer"){
-        item.career = educacion.value;
+      if(input.name == "editCompany"){
+        this.listExperiences[index].company = input.value;
       }
 
-      if(educacion.name == "editStartEducation"){
-        item.start = educacion.value;
+      if(input.name == "editStartExperience"){
+        this.listExperiences[index].start = input.value;
       }
 
-      if(educacion.name == "editEndEducation"){
-        item.end = educacion.value;
+      if(input.name == "editEndExperience"){
+        this.listExperiences[index].end = input.value;
       }
 
-      if(educacion.name == "editImg"){
-        item.img = educacion.value;
+    })
+  }
+
+  sumarExperiencia(){
+    this.listExperiences.push({
+      "position": "Posicion",
+      "company": "Compania",
+      "img": "#",
+      "start": "Inicio",
+      "end": "Fin"
+    })
+  }
+
+  eliminarExperiencia(index : number){
+    this.listExperiences.splice(index, 1);
+  }
+
+  editarEducacion(inputsEducaciones : Array<HTMLInputElement>, index : number){
+    inputsEducaciones.forEach((input) => {
+      !input.hidden ? input.hidden = true : input.hidden = false;
+
+      if(input.name == "editSchool"){
+        this.listEducation[index].school = input.value;
+      }
+
+      if(input.name == "editTitle"){
+        this.listEducation[index].title = input.value;
+      }
+
+      if(input.name == "editCareer"){
+        this.listEducation[index].career = input.value;
+      }
+
+      if(input.name == "editStartEducation"){
+        this.listEducation[index].start = input.value;
+      }
+
+      if(input.name == "editEndEducation"){
+        this.listEducation[index].end = input.value;
+      }
+
+      if(input.name == "editImg"){
+        this.listEducation[index].img = input.value;
       }
     })
+  }
+
+  sumarEducacion(){
+    this.listEducation.push({
+      "school": "Escuela",
+      "img": "#",
+      "title": "Titulo",
+      "career": "Carrera",
+      "start": "Inicio",
+      "end": "Fin"
+    })
+  }
+
+  eliminarEducacion(index : number){
+    this.listEducation.splice(index, 1);
   }
 }

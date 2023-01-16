@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { ActivarloginService } from 'src/app/servicios/activarlogin.service';
 import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent implements OnInit{
-  constructor(private servicio: DataPortafolioService){}
+  constructor(private servicio : DataPortafolioService, private activarLogin : ActivarloginService){}
 
   dataPortafolio : any;
 
@@ -15,5 +16,12 @@ export class EncabezadoComponent implements OnInit{
     this.servicio.obtenerData().subscribe(data => {
       this.dataPortafolio = data;
     });
+  }
+
+  ocultarLoginInput = true;
+
+  mostrarLogin(){
+    this.activarLogin.disparadorDeActivarLogin.emit(this.ocultarLoginInput);
+    !this.ocultarLoginInput ? this.ocultarLoginInput = true : this.ocultarLoginInput = false;
   }
 }

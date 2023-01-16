@@ -33,3 +33,17 @@ input{
     bottom: 5px;
     right: 50px;
 }
+
+.contenedor-editar{
+    height: 38px;
+}
+
+@media screen and (max-width: 768px) {
+    ul{
+        padding-left: 0px;
+    }
+
+    .card{
+        margin: 0px auto;
+    }
+}

@@ -1,13 +1,13 @@
 <section class="skills container-fluid rounded-2">
     <div class="position-relative">
         <h2 class="titulo_boton_sumar">Aptitudes</h2>
-        <div id="" class="btn btn-outline-secondary boton__sumar">
+        <div id="" class="btn btn-outline-secondary boton__sumar" (click)="sumarSkill()">
             <i class="fa-solid fa-plus"></i>
         </div>
     </div>
-    <div class="container-fluid p-2">
+    <div class="container-fluid p-2 contenedor-aptitudes">
         <ul>
-            <li *ngFor="let itemSkill of listSkills">
+            <li *ngFor="let itemSkill of listSkills; index as i">
                 <div class="skills__contenedores mb-2" #skill>
                     <h4>{{itemSkill.name}}</h4>
                     <div class="progress mb-2">
@@ -16,14 +16,15 @@
                             [style.width.%]="itemSkill.progress"></div>
                     </div>
                     <div class="d-flex flex-row">
-                        <div class="btn btn-outline-secondary" (click)="mostrarInput(input, barraProgreso)">
+                        <div class="btn btn-outline-secondary" (click)="editarInput([inputProgreso, inputNombre], itemSkill)">
                                 <i class="fa fa-pen"></i>
                         </div>
-                        <div class="btn btn-outline-secondary ms-4" (click)="eliminarSkill(skill)">
+                        <div class="btn btn-outline-secondary ms-4" (click)="eliminarSkill(i)">
                             <i class="fa-solid fa-trash"></i>
                         </div>
                     </div>
-                    <input class="inputSkill" type="number" #input name="" id="" [hidden]="true" [(ngModel)]="itemSkill.progress" (keydown.enter)="ocultarInput(input)">
+                    <input class="inputSkill" type="number" #inputProgreso name="" id="" [hidden]="true" [(ngModel)]="itemSkill.progress" (keydown.enter)="ocultarInput(inputProgreso)">
+                    <input class="inputSkill" type="text" #inputNombre name="" id="" [hidden]="true" [(ngModel)]="itemSkill.name" (keydown.enter)="ocultarInput(inputNombre)">
                 </div>
             </li>
         </ul>

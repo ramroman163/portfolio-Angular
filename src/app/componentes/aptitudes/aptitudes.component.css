@@ -1,8 +1,23 @@
 ul{
     list-style: none;
+    padding: 0px;
 }
 
 .inputSkill{
     margin-top: 5px;
     padding: 5px;
+}
+
+@media screen and (max-width: 768px){
+    .skills__contenedores{
+        width: 95%;
+    }
+
+    .contenedor-aptitudes{
+        width: 95%;
+    }
+
+    .inputSkill{
+        width: 80%;
+    }
 }
