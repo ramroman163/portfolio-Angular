@@ -1,36 +1,33 @@
 <section class="proyectos container-fluid rounded-2">
     <div class="position-relative">
         <h2 class="titulo_boton_sumar">Proyectos</h2>
-        <div id="" class="btn btn-outline-secondary boton__sumar" (click)="sumarProyecto()">
+        <button id="" class="btn btn-outline-secondary boton__sumar" routerLink="/nuevoproyecto" *ngIf="isLogged">
             <i class="fa-solid fa-plus"></i>
-        </div>
+        </button>
     </div>
 
     <div class="container-fluid p-2">
         <ul>
-            <li *ngFor="let itemProject of listProjects; index as i">
+            <li *ngFor="let itemProject of proyecto; index as i">
                 <div class="card pt-2 pb-2 mb-2" #proyecto>
                     <div class="card-body">
                         <div class="position-relative">
-                            <h5 class="card-title d-inline-block">{{ itemProject.name }}</h5>
+                            <h5 class="card-title d-inline-block">{{ itemProject.nombreProyecto }}</h5>
                         </div>
-                        <input type="text" name="" id="" #editarNombre [(ngModel)]=" itemProject.name "  [hidden]="true" (keydown.enter)="ocultarInput(editarNombre)">
                         <div class="position-relative">
-                            <p class="card-text">{{ itemProject.description }}</p>
+                            <p class="card-text">{{ itemProject.descProyecto }}</p>
                         </div>
-                        <input type="text" name="" id="" #editarDescripcion [(ngModel)]=" itemProject.description " [hidden]="true" (keydown.enter)="ocultarInput(editarDescripcion)">
                         <div class="position-relative">
-                            <a [href]=" itemProject.link " class="btn btn-primary card-link">Página Web</a>
+                            <a [href]="itemProject.linkProyecto" class="btn btn-primary card-link">Link página</a>
                         </div>
-                        <input type="text" name="" id="" #editarLink [(ngModel)]=" itemProject.link " [hidden]="true" (keydown.enter)="ocultarInput(editarLink)">
                     </div>
                     <div class="contenedor-editar">
-                        <div class="btn btn-outline-secondary boton-editar" (click)="editarInput([editarNombre, editarDescripcion, editarLink], i)">
+                        <button class="btn btn-outline-secondary boton-editar" routerLink="/editproyecto/{{itemProject.id}}" *ngIf="isLogged">
                             <i class="fa fa-pen"></i>
-                        </div>
-                        <div class="btn btn-outline-secondary eliminar-proyecto" (click)=" eliminarProyecto(i) ">
+                        </button>
+                        <button class="btn btn-outline-secondary eliminar-proyecto" (click)="onDelete(itemProject.id)" *ngIf="isLogged">
                             <i class="fa-solid fa-trash"></i>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </li>

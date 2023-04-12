@@ -1,0 +1,27 @@
+<div class="container vh-100 w-100">
+    <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="puestoExp" class="form-label">Puesto</label>
+                <input type="text" class="form-control" name="puestoExp" id="puestoExp" [(ngModel)]="puestoExp" required>
+            </div>
+            <div class="mb-3">
+                <label for="lugarExp" class="form-label">Lugar</label>
+                <input type="text" class="form-control" name="lugarExp" id="lugarExp" [(ngModel)]="lugarExp" required>
+            </div>
+            <div class="mb-3">
+                <label for="inicioExp" class="form-label">Fecha inicio</label>
+                <input type="text" class="form-control" name="inicioExp" id="inicioExp" [(ngModel)]="inicioExp" required>
+            </div>
+            <div class="mb-3">
+                <label for="finExp" class="form-label">Fecha fin</label>
+                <input type="text" class="form-control" name="finExp" id="finExp" [(ngModel)]="finExp">
+            </div>
+            <div class="mb-3">
+                <label for="linkImg" class="form-label">Link imagen</label>
+                <input type="text" class="form-control" name="linkImg" id="linkImg" [(ngModel)]="linkImg">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+<div class="container vh-100 w-100" *ngIf="persona">
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="persona.nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" name="apellido" id="apellido" [(ngModel)]="persona.apellido" required>
+            </div>
+            <div class="mb-3">
+                <label for="profesion" class="form-label">Profesión</label>
+                <input type="text" class="form-control" name="profesion" id="profesion" [(ngModel)]="persona.profesion" required>
+            </div>
+            <div class="mb-3">
+                <label for="ubicacion" class="form-label">Ubicación</label>
+                <input type="text" class="form-control" name="ubicacion" id="ubicacion" [(ngModel)]="persona.ubicacion" required>
+            </div>
+            <div class="mb-3">
+                <label for="linkImgPerfil" class="form-label">Link imagen perfil</label>
+                <input type="text" class="form-control" name="linkImgPerfil" id="linkImgPerfil" [(ngModel)]="persona.linkImgPerfil" required>
+            </div>
+            <div class="mb-3">
+                <label for="linkImgBanner" class="form-label">Link imagen banner</label>
+                <input type="text" class="form-control" name="linkImgBanner" id="linkImgBanner" [(ngModel)]="persona.linkImgBanner" required>
+            </div>
+            <div class="mb-3">
+                <label for="acercaDeMi" class="form-label">Acerca de mi</label>
+                <input type="text" class="form-control" name="acercaDeMi" id="acercaDeMi" [(ngModel)]="persona.acercaDeMi" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+</div>

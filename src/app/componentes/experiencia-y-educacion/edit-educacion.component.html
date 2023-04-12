@@ -1,0 +1,31 @@
+<div class="container vh-100 w-100" *ngIf="educacion">
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="institucionEdu" class="form-label">Institución</label>
+                <input type="text" class="form-control" name="institucionEdu" id="institucionEdu" [(ngModel)]="educacion.institucionEdu" required>
+            </div>
+            <div class="mb-3">
+                <label for="tituloEdu" class="form-label">Titulo</label>
+                <input type="text" class="form-control" name="tituloEdu" id="tituloEdu" [(ngModel)]="educacion.tituloEdu" required>
+            </div>
+            <div class="mb-3">
+                <label for="carreraEdu" class="form-label">Carrera</label>
+                <input type="text" class="form-control" name="carreraEdu" id="carreraEdu" [(ngModel)]="educacion.carreraEdu" required>
+            </div>
+            <div class="mb-3">
+                <label for="inicioEdu" class="form-label">Fecha inicio</label>
+                <input type="text" class="form-control" name="inicioEdu" id="inicioEdu" [(ngModel)]="educacion.inicioEdu" required>
+            </div>
+            <div class="mb-3">
+                <label for="finEdu" class="form-label">Fecha fin</label>
+                <input type="text" class="form-control" name="finEdu" id="finEdu" [(ngModel)]="educacion.finEdu">
+            </div>
+            <div class="mb-3">
+                <label for="linkImg" class="form-label">Link imagen</label>
+                <input type="text" class="form-control" name="linkImg" id="linkImg" [(ngModel)]="educacion.linkImg">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+</div>

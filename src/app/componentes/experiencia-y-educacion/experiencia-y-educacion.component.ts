@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.service';
+import { Educacion } from 'src/app/model/educacion';
+import { Experiencia } from 'src/app/model/experiencia';
+import { SEducacionService } from 'src/app/service/s-educacion.service';
+import { SExperienciaService } from 'src/app/service/s-experiencia.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-experiencia-y-educacion',
@@ -7,106 +11,53 @@ import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.
   styleUrls: ['./experiencia-y-educacion.component.css']
 })
 export class ExperienciaYEducacionComponent implements OnInit {
+  experiencia : Experiencia[] = [];
+  educacion : Educacion[] = [];
 
-  constructor(private servicio:DataPortafolioService){}
+  constructor(private sExperiencia : SExperienciaService, private tokenService : TokenService, private sEducacion : SEducacionService){}
 
-  listEducation : any;
-  listExperiences : any;
+  isLogged = false;
 
   ngOnInit(): void {
-    this.servicio.obtenerData().subscribe(data => {
-      this.listEducation = data.education;
-      this.listExperiences = data.experiences;
-    });
+    this.cargarExperiencia();
+    this.cargarEducacion();
+
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else{
+      this.isLogged = false;
+    }
   }
 
-  ocultarInput(input : HTMLInputElement){
-    input.hidden = true;
+  cargarExperiencia() : void{
+    this.sExperiencia.lista().subscribe(
+      data => {this.experiencia = data}
+    )
   }
 
-  editarExperiencia(inputsExperiencias : Array<HTMLInputElement>, index : number){
-    inputsExperiencias.forEach((input) => {
-      !input.hidden ? input.hidden = true : input.hidden = false;
-
-      if(input.name == "editImgExperience"){
-        this.listExperiences[index].img = input.value;
-      }
-
-      if(input.name == "editPosition"){
-        this.listExperiences[index].position = input.value;
-      }
-
-      if(input.name == "editCompany"){
-        this.listExperiences[index].company = input.value;
-      }
-
-      if(input.name == "editStartExperience"){
-        this.listExperiences[index].start = input.value;
-      }
-
-      if(input.name == "editEndExperience"){
-        this.listExperiences[index].end = input.value;
-      }
-
-    })
+  cargarEducacion() : void{
+    this.sEducacion.lista().subscribe(
+      data => {this.educacion = data}
+    )
   }
 
-  sumarExperiencia(){
-    this.listExperiences.push({
-      "position": "Posicion",
-      "company": "Compania",
-      "img": "#",
-      "start": "Inicio",
-      "end": "Fin"
-    })
+  onDelete(id? : number) : void{
+    if(id != undefined){
+      this.sExperiencia.delete(id).subscribe(data =>{
+        this.cargarExperiencia();
+      }, err =>{
+        alert("No se pudo eliminar la experiencia");
+      })
+    }
   }
 
-  eliminarExperiencia(index : number){
-    this.listExperiences.splice(index, 1);
-  }
-
-  editarEducacion(inputsEducaciones : Array<HTMLInputElement>, index : number){
-    inputsEducaciones.forEach((input) => {
-      !input.hidden ? input.hidden = true : input.hidden = false;
-
-      if(input.name == "editSchool"){
-        this.listEducation[index].school = input.value;
-      }
-
-      if(input.name == "editTitle"){
-        this.listEducation[index].title = input.value;
-      }
-
-      if(input.name == "editCareer"){
-        this.listEducation[index].career = input.value;
-      }
-
-      if(input.name == "editStartEducation"){
-        this.listEducation[index].start = input.value;
-      }
-
-      if(input.name == "editEndEducation"){
-        this.listEducation[index].end = input.value;
-      }
-
-      if(input.name == "editImg"){
-        this.listEducation[index].img = input.value;
-      }
-    })
-  }
-
-  sumarEducacion(){
-    this.listEducation.push({
-      "school": "Escuela",
-      "img": "#",
-      "title": "Titulo",
-      "career": "Carrera",
-      "start": "Inicio",
-      "end": "Fin"
-    })
-  }
-
-  eliminarEducacion(index : number){
-    this.listEducation.splice(index, 1);
+  onDeleteEdu(id? : number) : void{
+    if(id != undefined){
+      this.sEducacion.delete(id).subscribe(data =>{
+        this.cargarEducacion();
+      }, err =>{
+        alert("No se pudo eliminar la educacion");
+      })
+    }
   }
 }

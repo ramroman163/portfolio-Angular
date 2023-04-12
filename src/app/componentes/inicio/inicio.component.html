@@ -1,39 +1,21 @@
 <section class="inicio rounded-2 container-fluid p-0">
-    <div class="position-relative">
-        <img [src]="dataPortafolio.backImage" class="inicio__banner">
-        <div class="contenedor__editar-banner">
-            <div class="btn btn-outline-secondary boton-editar-banner" (click)="editarBanner(inputBanner)">
-                <i class="fa fa-pen"></i>
-            </div>
-            <input class="editar-banner" type="text" [hidden]="true" #inputBanner (keydown.enter)="ocultarInput(inputBanner)" [(ngModel)]="dataPortafolio.backImage">
-        </div>
+    <div class="inicio__contenedor_banner">
+        <img [src]="persona.linkImgBanner" class="inicio__banner" alt="foto_banner">
     </div>
     <div class="inicio__informacion border-top border-secondary row w-100 m-0">
         <div class="position-relative">
             <div class="inicio__informacion--perfil">
-                <img [src]="dataPortafolio.image" alt="foto_perfil" class="rounded-circle">
-                <div id="inicio__informacion--editar_perfil" class="btn btn-outline-secondary" (click)="editarPerfil(inputPerfil)">
+                <img [src]="persona.linkImgPerfil" alt="foto_perfil" class="rounded-circle foto-perfil">
+                <button class="btn btn-outline-secondary inicio__informacion--editar_perfil" routerLink="/editpersona/1"
+                    *ngIf="isLogged">
                     <i class="fa fa-pen"></i>
-                </div>
+                </button>
             </div>
             <div class="inicio__informacion--descripcion">
-                <h3 class="text-center">{{ dataPortafolio.name }}</h3>
-                <input type="text" [hidden]="true" #inputPerfil (keydown.enter)="ocultarInput(inputPerfil)" [(ngModel)]="dataPortafolio.image">
-                <div class="position-relative contenedor-informacion">
-                    <h5>{{ dataPortafolio.position }}</h5>
-                    <div class="btn btn-outline-secondary boton-editar" (click)="editarPosition(inputPosition)">
-                        <i class="fa fa-pen"></i>
-                    </div>
-                </div>
-                <input type="text" #inputPosition [(ngModel)]="dataPortafolio.position" [hidden]="true" (keydown.enter)="ocultarInput(inputPosition)">
-                <div class="position-relative contenedor-informacion">
-                    <h5>{{ dataPortafolio.ubication }}</h5>
-                    <div class="btn btn-outline-secondary boton-editar" (click)="editarUbication(inputUbication)">
-                        <i class="fa fa-pen"></i>
-                    </div>
-                </div>
-                <input type="text" #inputUbication [(ngModel)]="dataPortafolio.ubication" [hidden]="true" (keydown.enter)="ocultarInput(inputUbication)">
-                <div class="contendor-botones">
+                <h3 class="text-center mb-3">{{ persona.nombre + " " + persona.apellido}}</h3>
+                <h5 class="mb-3">{{ persona.profesion }}</h5>
+                <h5 class="mb-3">{{ persona.ubicacion }}</h5>
+                <div class="contenedor-botones">
                     <button class="btn btn-primary me-2">Tengo interés en</button>
                     <button class="btn btn-secondary me-2">Añadir sección</button>
                     <button class="btn btn-secondary me-2">Más</button>

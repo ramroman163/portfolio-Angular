@@ -1,5 +1,26 @@
+header{
+    background: transparent;
+    position: sticky !important;
+}
+
+nav{
+    background: rgb(0,114,198);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: none;
+}
+
+.contenedor-logo{
+    width: fit-content;
+}
+
+.logoap{
+    width: 70%;
+}
+
 .iconos-redes{
     font-size: 30px;
+    color: white;
 }
 
 .contenedor-icon{
@@ -13,7 +34,11 @@
     display: none;
 }
 
-@media screen and (max-width: 425px) {
+.dropdown-toggle{
+    color: white;
+}
+
+@media screen and (max-width: 440px){
     .redes{
         display: none !important;
     }
@@ -22,7 +47,15 @@
         display: block;
     }
 
-    .titulo-pag{
-        font-size: 18px;
+    nav{
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        height: 10vh;
+    }
+
+    .contenedor-redes-login{
+        display: flex;
+        flex-wrap: nowrap;
     }
 }

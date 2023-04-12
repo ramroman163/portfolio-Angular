@@ -1,0 +1,15 @@
+<div class="container vh-100 w-100">
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="nombreHab" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombreHab" id="nombreHab" [(ngModel)]="habilidad.nombreHab" required>
+            </div>
+            <div class="mb-3">
+                <label for="porcentajeHab" class="form-label">Porcentaje</label>
+                <input type="number" class="form-control" name="porcentajeHab" id="porcentajeHab" [(ngModel)]="habilidad.porcentajeHab" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+</div>

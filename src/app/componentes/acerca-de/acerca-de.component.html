@@ -1,12 +1,8 @@
 <section class="acercade container-fluid rounded-2">
     <div class="acercade--titulo position-relative">
-        <h3>Acerca de</h3>
-        <div id="acercade--editar" class="btn btn-outline-secondary" (click)="mostrarInput(cambiarAcercaDe);">
-            <i class="fa fa-pen"></i>
-        </div>
+        <h3>Acerca de mi</h3>
     </div>
     <div class="acercade--contenido">
-        <p class="acercade--parrafo">{{ dataPortafolio.about }}</p>
+        <p class="acercade--parrafo">{{ persona.acercaDeMi }}</p>
     </div>
-    <input type="text" name="" #cambiarAcercaDe class="cambiarAcercaDe" (keydown.enter)="guardarValorInput($event)" [hidden]="true" [(ngModel)]="dataPortafolio.about">
 </section>

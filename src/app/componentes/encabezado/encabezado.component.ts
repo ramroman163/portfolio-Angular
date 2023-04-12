@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { ActivarloginService } from 'src/app/servicios/activarlogin.service';
-import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.service';
+import { Router } from '@angular/router';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -8,20 +8,28 @@ import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent implements OnInit{
-  constructor(private servicio : DataPortafolioService, private activarLogin : ActivarloginService){}
+  isLogged = false;
+
+  constructor(private router : Router, private tokenService : TokenService){}
 
   dataPortafolio : any;
 
   ngOnInit(): void {
-    this.servicio.obtenerData().subscribe(data => {
-      this.dataPortafolio = data;
-    });
+
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }
+    else{
+      this.isLogged = false;
+    }
   }
 
-  ocultarLoginInput = true;
+  login() : void {
+    this.router.navigate(['/auth/iniciar-sesion']);
+  }
 
-  mostrarLogin(){
-    this.activarLogin.disparadorDeActivarLogin.emit(this.ocultarLoginInput);
-    !this.ocultarLoginInput ? this.ocultarLoginInput = true : this.ocultarLoginInput = false;
+  logout() : void {
+    this.tokenService.logOut();
+    window.location.reload();
   }
 }

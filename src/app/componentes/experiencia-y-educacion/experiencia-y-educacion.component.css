@@ -1,4 +1,4 @@
-.editar-educacion{
+.boton-editar{
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -8,30 +8,27 @@ ul{
     list-style: none;
 }
 
-.edit-img{
-    position: absolute;
-    bottom: 11px;
-    left: 16px;
-}
-
-.contenedor-edit{
-    position: relative;
-    height: 48px;
+.contenedor-img-card > img{
+    max-width: 150px;
+    object-fit: contain;
 }
 
 .card{
-    max-width: 540px; 
+    /* width: 540px;  */
+    width: 50%;
     min-height: 210px;
 }
 
-.input-exp-ed{
-    padding: 5px;
-}
-
-.boton-eliminar-exp-ed{
+.boton-eliminar{
     position: absolute;
     top: 5px;
     right: 5px;
+}
+
+@media screen and (max-width: 1024px){
+    .card{
+        width: 65%;
+    }
 }
 
 
@@ -71,23 +68,7 @@ ul{
 }
 
 @media screen and (max-width: 405px) {
-    .input-exp-ed{
-        width: 100%;
-    }
-
     .card-body{
         padding: 10px;
-    }
-
-    .contenedor-edit{
-        height: 48px;
-    }
-
-    .edit-img{
-        position: absolute;
-        width: 70%;
-        height: 36px;
-        top: 5px;
-        left: 10px;
     }
 }

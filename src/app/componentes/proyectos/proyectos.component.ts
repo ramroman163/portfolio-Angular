@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.service';
+import { Proyecto } from 'src/app/model/proyecto';
+import { SProyectoService } from 'src/app/service/s-proyecto.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -7,50 +9,36 @@ import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.
   styleUrls: ['./proyectos.component.css']
 })
 export class ProyectosComponent implements OnInit{
-  
-  constructor(private servicio: DataPortafolioService){}
-  
-  listProjects : any;
+  proyecto : Proyecto[] = [];
+
+  constructor(private sProyecto : SProyectoService, private tokenService : TokenService ){}
+
+  isLogged = false;
 
   ngOnInit(): void {
-    this.servicio.obtenerData().subscribe(data => {
-      this.listProjects = data.achievements;
-    })
-  }
+    this.cargarProyecto();
 
-  editarInput(inputs : Array<HTMLInputElement>, index : number){
-
-    inputs.forEach((input) => {
-      !input.hidden ? input.hidden = true : input.hidden = false;
-      
-      if(input.name == "editarNombre"){
-        this.listProjects[index].name = input.value;
-      }
-
-      if(input.name == "editarDescripcion"){
-        this.listProjects[index].progress = input.value;
-      }
-
-      if(input.name == "editarLink"){
-        this.listProjects[index].description = input.value;
-      }
-    })
-  }
-
-  ocultarInput(input : HTMLInputElement){
-    input.hidden = true;
-  };
-
-  eliminarProyecto(i : number){
-    this.listProjects.splice(i, 1);
-  };
-
-  sumarProyecto(){
-    if(this.listProjects.length < 5){
-      this.listProjects.push({"name": "lol", "description": "om", "link": "#"});
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
     }
     else{
-      alert("Se excedió el límite de Aptitudes");
+      this.isLogged = false;
+    }
+  }
+
+  cargarProyecto() : void{
+    this.sProyecto.lista().subscribe(
+      data => {this.proyecto = data}
+    )
+  }
+
+  onDelete(id? : number) : void{
+    if(id != undefined){
+      this.sProyecto.delete(id).subscribe(data =>{
+        this.cargarProyecto();
+      }, err =>{
+        alert("No se pudo eliminar el proyecto");
+      })
     }
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.service';
+import { Persona } from 'src/app/model/persona.model';
+import { PersonaService } from 'src/app/service/persona.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-acerca-de',
@@ -8,26 +10,27 @@ import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.
 })
 export class AcercaDeComponent implements OnInit{
 
-  constructor(private servicio: DataPortafolioService){}
+  persona : Persona = null;
 
-  dataPortafolio : any;
+  constructor(private personaService : PersonaService, private tokenService : TokenService){}
+  
+  isLogged : boolean = false;
 
   ngOnInit(): void {
-    this.servicio.obtenerData().subscribe(data => {
-      this.dataPortafolio = data;
+    this.cargarPersona();
+
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }
+    else{
+      this.isLogged = false;
+    }
+  }
+
+  cargarPersona(){
+    this.personaService.detail(1).subscribe(data => {
+      this.persona = data;
     })
-  }
-
-  mostrarInputAcercaDe : boolean = true;
-  valorInput : string = "";
-
-  mostrarInput(input : HTMLInputElement){
-    !input.hidden ? input.hidden = true : input.hidden = false;
-  }
-
-  guardarValorInput(event : Event){
-    this.valorInput = (<HTMLInputElement>event.target).value;
-    this.dataPortafolio.about = this.valorInput;
   }
 
 }

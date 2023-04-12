@@ -1,14 +1,20 @@
-<div [hidden]="ocultarComponenteLogin" class="fondo-login">
-    <div class="p-3 rounded-1 contenedor-login">
-        <h3>Login</h3>
-        <div class="mb-2">
-            <label for="inputUsuarioLogin" class="form-label">Usuario</label>
-            <input type="text" class="form-control" id="inputUsuarioLogin" placeholder="Ingrese el usuario">
+<div class="fondo-login">
+    <form #f="ngForm" (ngSubmit)="onLogin()" novalidate class="contenedor-login p-4 rounded-3">
+        <h3 class="mb-4">Iniciar Sesión</h3>
+        <div class="mb-4">
+          <label for="nombreUsuario" class="form-label">Usuario</label>
+          <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" [(ngModel)]="nombreUsuario" required>
         </div>
-        <div class="mb-2">
-            <label for="inputUsuarioLogin" class="form-label">Contraseña</label>
-            <input type="text" class="form-control" id="inputUsuarioLogin" placeholder="Ingrese la contraseña">
+
+        <div class="mb-4">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password" required>
         </div>
-        <button type="button" class="btn btn-primary boton-iniciar-login">Login</button>
-    </div>
+
+        <!-- <div class="form-check mb-4">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
+        </div> -->
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
 </div>

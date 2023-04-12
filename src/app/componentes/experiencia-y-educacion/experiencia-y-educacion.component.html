@@ -1,99 +1,72 @@
 <section class="experiencia container-fluid rounded-2">
     <div class="position-relative titulo-boton">
         <h2 class="titulo_boton_sumar">Experiencia</h2>
-        <div id="" class="btn btn-outline-secondary boton__sumar" (click)="sumarExperiencia()">
+        <button id="" class="btn btn-outline-secondary boton__sumar" routerLink="/nuevaexp" *ngIf="isLogged">
             <i class="fa-solid fa-plus"></i>
-        </div>
+        </button>
     </div>
     <div class="container-fluid contenedor-cards">
         <ul>
-            <li *ngFor="let itemExperience of listExperiences; index as i">
+            <li *ngFor="let itemExperiencia of experiencia; index as i">
                 <div class="card mb-2 pt-2 pb-2">
                     <div class="row g-0">
-                        <div class="col-md-4 d-flex">
-                            <img [src]="itemExperience.img" class="img-fluid rounded-start" alt="...">
+                        <div class="col-md-4 d-flex contenedor-img-card">
+                            <img [src]="itemExperiencia.linkImg" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">{{ itemExperience.position }}</h5>
-                                <input class="input-exp-ed" type="text" name="" [hidden]="true" #editPosition
-                                    [(ngModel)]=" itemExperience.position "
-                                    (keydown.enter)="ocultarInput(editPosition)">
-                                <p class="card-text">{{ itemExperience.company }}</p>
-                                <input class="input-exp-ed" type="text" name="" [hidden]="true" #editCompany
-                                    [(ngModel)]=" itemExperience.company" (keydown.enter)="ocultarInput(editCompany)">
-                                <p class="card-text fecha-exp-ed"> <time>{{ itemExperience.start }}</time> - <time>{{
-                                        itemExperience.end }}</time></p>
-                                <input class="input-exp-ed" type="text" name="" [hidden]="true" #editStartExperience
-                                    [(ngModel)]=" itemExperience.start "
-                                    (keydown.enter)="ocultarInput(editStartExperience)">
-                                <input class="input-exp-ed" type="text"
-                                    name="" [hidden]="true" #editEndExperience
-                                    [(ngModel)]=" itemExperience.end "
-                                    (keydown.enter)="ocultarInput(editEndExperience)">
+                                <h5 class="card-title">{{ itemExperiencia.puestoExp }}</h5>
+                                <p class="card-text">{{ itemExperiencia.lugarExp }}</p>
+                                <p class="card-text fecha-exp-ed"> <time>{{ itemExperiencia.inicioExp }}</time> -
+                                    <time>{{
+                                        itemExperiencia.finExp }}</time></p>
                             </div>
                         </div>
                     </div>
-                    <div class="position-relative contenedor-edit">
-                        <input type="text" class="edit-img input-exp-ed" name="" [hidden]="true" #editImgExperience
-                            [(ngModel)]=" itemExperience.img " (keydown.enter)="ocultarInput(editImgExperience)">
-                        <div class="btn btn-outline-secondary editar-educacion"
-                            (click)="editarExperiencia([editImgExperience, editPosition, editCompany, editStartExperience, editEndExperience], i)">
-                            <i class="fa fa-pen"></i>
-                        </div>
-                    </div>
-                    <div class="btn btn-outline-secondary boton-eliminar-exp-ed" (click)="eliminarExperiencia(i)">
+                    <button class="btn btn-outline-secondary boton-editar" routerLink="/editexp/{{itemExperiencia.id}}"
+                        *ngIf="isLogged">
+                        <i class="fa fa-pen"></i>
+                    </button>
+
+                    <button class="btn btn-outline-secondary boton-eliminar" (click)="onDelete(itemExperiencia.id)"
+                        *ngIf="isLogged">
                         <i class="fa-solid fa-trash"></i>
-                    </div>
+                    </button>
                 </div>
             </li>
         </ul>
     </div>
     <div class="position-relative titulo-boton">
         <h2 class="titulo_boton_sumar">Educacion</h2>
-        <div id="" class="btn btn-outline-secondary boton__sumar" (click)="sumarEducacion()">
+        <button id="" class="btn btn-outline-secondary boton__sumar" routerLink="/nuevaedu" *ngIf="isLogged">
             <i class="fa-solid fa-plus"></i>
-        </div>
+        </button>
     </div>
     <div class="container-fluid contenedor-cards">
         <ul>
-            <li *ngFor="let itemEducation of listEducation; index as j">
+            <li *ngFor="let itemEducacion of educacion; index as j">
                 <div class="card mb-2 pt-2 pb-2">
                     <div class="row g-0">
-                        <div class="col-md-4 d-flex">
-                            <img [src]="itemEducation.img" class="img-fluid rounded-start p-2" alt="...">
+                        <div class="col-md-4 d-flex contenedor-img-card">
+                            <img [src]="itemEducacion.linkImg" class="img-fluid rounded-start p-2" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title"> {{ itemEducation.school }} </h5>
-                                <input class="input-exp-ed" type="text" name="" [hidden]="true" #editSchool
-                                    [(ngModel)]=" itemEducation.school " (keydown.enter)="ocultarInput(editSchool)">
-                                <p class="card-text"> {{ itemEducation.title }}, {{ itemEducation.career }} </p>
-                                <input class="input-exp-ed" type="text" name="" [hidden]="true" #editTitle
-                                    [(ngModel)]=" itemEducation.title " (keydown.enter)="ocultarInput(editTitle)">
-                                <input class="input-exp-ed" type="text" name="" [hidden]="true" #editCareer
-                                    [(ngModel)]=" itemEducation.career " (keydown.enter)="ocultarInput(editCareer)">
-                                <p class="card-text fecha-exp-ed"> <time>{{ itemEducation.start }}</time> - <time>{{
-                                        itemEducation.end }}</time> </p>
-                                <input class="input-exp-ed" type="text" name="" [hidden]="true" #editStartEducation
-                                    [(ngModel)]=" itemEducation.start "
-                                    (keydown.enter)="ocultarInput(editStartEducation)">
-                                <input class="input-exp-ed" type="text" name="" [hidden]="true" #editEndEducation
-                                    [(ngModel)]=" itemEducation.end " (keydown.enter)="ocultarInput(editEndEducation)">
+                                <h5 class="card-title"> {{ itemEducacion.institucionEdu }} </h5>
+                                <p class="card-text"> {{ itemEducacion.tituloEdu }}, {{ itemEducacion.carreraEdu }} </p>
+                                <p class="card-text fecha-exp-ed"> <time>{{ itemEducacion.inicioEdu }}</time> - <time>{{
+                                        itemEducacion.finEdu }}</time> </p>
                             </div>
                         </div>
                     </div>
-                    <div class="position-relative contenedor-edit">
-                        <input type="text" #editImgEducation class="edit-img input-exp-ed" [hidden]="true" name="" id=""
-                            [(ngModel)]=" itemEducation.img " (keydown.enter)="ocultarInput(editImgEducation)">
-                        <div class="btn btn-outline-secondary editar-educacion"
-                            (click)="editarEducacion([editSchool, editTitle, editCareer, editStartEducation, editEndEducation, editImgEducation], j)">
-                            <i class="fa fa-pen"></i>
-                        </div>
-                    </div>
-                    <div class="btn btn-outline-secondary boton-eliminar-exp-ed" (click)="eliminarEducacion(j)">
+                    <button class="btn btn-outline-secondary boton-editar" routerLink="/editedu/{{itemEducacion.id}}"
+                        *ngIf="isLogged">
+                        <i class="fa fa-pen"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary boton-eliminar" (click)="onDeleteEdu(itemEducacion.id)"
+                        *ngIf="isLogged">
                         <i class="fa-solid fa-trash"></i>
-                    </div>
+                    </button>
                 </div>
             </li>
         </ul>

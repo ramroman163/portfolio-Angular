@@ -3,22 +3,20 @@ h3{
 }
 
 .fondo-login{
-    position: absolute;
-    top: 57px;
-    left: 0px;
     background: #2E4057;
     width: 100%;
-    height: calc(100vh - 57px);
-    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contenedor-login{
     min-height: 300px;
-    margin: auto;
-    margin-top: calc(50vh - 150px - 57px);
+    margin: 0 auto;
     width: 300px;
     background: #fff;
-    box-shadow: 3px 3px 3px 5px #2d3a4d;
+    box-shadow: 0px 3px 3px 5px #2d3a4d;
 }
 
 .boton-iniciar-login{

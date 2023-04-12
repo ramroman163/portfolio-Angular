@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivarloginService } from './servicios/activarlogin.service';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +7,7 @@ import { ActivarloginService } from './servicios/activarlogin.service';
 })
 export class AppComponent {
 
-  constructor(private activarLogin : ActivarloginService){}
+  constructor(){}
 
   title = 'paginaAngular';
-
-  ocultarMain! : boolean;
-
-  ngOnInit() : void{
-    this.activarLogin.disparadorDeActivarLogin.subscribe(data => {
-      this.ocultarMain = data;
-    })
-  }
 }

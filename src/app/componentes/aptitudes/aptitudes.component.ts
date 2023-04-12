@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.service';
+import { Habilidad } from 'src/app/model/habilidad';
+import { SHabilidadService } from 'src/app/service/s-habilidad.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-aptitudes',
@@ -7,46 +9,37 @@ import { DataPortafolioService } from 'src/app/servicios/dataPortafolio-service.
   styleUrls: ['./aptitudes.component.css']
 })
 export class AptitudesComponent implements OnInit {
-  constructor(private servicio: DataPortafolioService) { }
-
-  listSkills: any;
+  
+  habilidad : Habilidad[] = [];
+  
+  constructor(private sHabilidad : SHabilidadService, private tokenService : TokenService) { }
+  
+  isLogged = false;
 
   ngOnInit(): void {
-    this.servicio.obtenerData().subscribe(data => {
-      this.listSkills = data.skills;
-    })
-  }
+    this.cargarHabilidad();
 
-  editarInput(inputs: Array<HTMLInputElement>, index: number) {
-
-    inputs.forEach((input) => {
-      !input.hidden ? input.hidden = true : input.hidden = false;
-
-      if (input.name == "inputNombre") {
-        this.listSkills[index].name = input.value;
-      }
-
-      if (input.name == "inputProgreso") {
-        this.listSkills[index].progress = input.value;
-      }
-    })
-
-  }
-
-  ocultarInput(input: HTMLInputElement) {
-    input.hidden = true;
-  };
-
-  eliminarSkill(i: number) {
-    this.listSkills.splice(i, 1);
-  };
-
-  sumarSkill() {
-    if (this.listSkills.length < 5) {
-      this.listSkills.push({ "name": "Titulo", "progress": 0 });
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
     }
-    else {
-      alert("Se excedió el límite de Aptitudes");
+    else{
+      this.isLogged = false;
+    }
+  }
+
+  cargarHabilidad() : void{
+    this.sHabilidad.lista().subscribe(
+      data => {this.habilidad = data}
+    )
+  }
+
+  onDelete(id? : number) : void{
+    if(id != undefined){
+      this.sHabilidad.delete(id).subscribe(data =>{
+        this.cargarHabilidad();
+      }, err =>{
+        alert("No se pudo eliminar la habilidad");
+      })
     }
   }
 }

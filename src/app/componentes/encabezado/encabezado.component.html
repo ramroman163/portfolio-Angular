@@ -1,19 +1,19 @@
-<header class="sticky-top border-bottom border-secondary">
-    <nav class="navbar bg-light p-2">
-        <div class="nav justify-content-start">
-            <a class="navbar-brand titulo-pag" href="#">
-                {{dataPortafolio.name}}
+<header>
+    <nav class="navbar p-3">
+        <div class="nav contenedor-logo">
+            <a href="/portfolio"> 
+                <img class="logoap" src="../../../assets/aplogo.png" alt="">
             </a>
         </div>
-        <div class="nav justify-content-end">
+        <div class="nav contenedor-redes-login">
             <div class="d-flex flex-row me-2 redes">
-                <a href="#" class="nav-link p-1 d-flex align-items-center">
+                <a href="https://www.linkedin.com/in/rom%C3%A1n-martinez-464719263/" class="nav-link p-1 d-flex align-items-center">
                     <i class="fa-brands fa-linkedin iconos-redes"></i>
                 </a>
-                <a href="#" class="nav-link p-1 d-flex align-items-center">
+                <a href="https://github.com/ramroman163" class="nav-link p-1 d-flex align-items-center">
                     <i class="fa-brands fa-github iconos-redes"></i>
                 </a>
-                <a href="#" class="nav-link p-1 d-flex align-items-center">
+                <a href="https://www.instagram.com/romancheloo18/" class="nav-link p-1 d-flex align-items-center">
                     <i class="fa-brands fa-instagram iconos-redes"></i>
                 </a>
             </div>
@@ -22,7 +22,7 @@
                     aria-expanded="false">Redes</a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="#" class="nav-link p-1 d-flex align-items-center">
+                        <a href="https://www.linkedin.com/in/rom%C3%A1n-martinez-464719263/" target="_blank" class="nav-link p-1 d-flex align-items-center">
                             <div class="contenedor-icon">
                                 <i class="fa-brands fa-linkedin iconos-redes"></i>
                             </div>
@@ -30,7 +30,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link p-1 d-flex align-items-center">
+                        <a href="https://github.com/ramroman163" target="_blank" class="nav-link p-1 d-flex align-items-center">
                             <div class="contenedor-icon">
                                 <i class="fa-brands fa-github iconos-redes"></i>
                             </div>
@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link p-1 d-flex align-items-center">
+                        <a href="https://www.instagram.com/romancheloo18/" target="_blank" class="nav-link p-1 d-flex align-items-center">
                             <div class="contenedor-icon">
                                 <i class="fa-brands fa-instagram iconos-redes"></i>
                             </div>
@@ -47,8 +47,8 @@
                     </li>
                 </ul>
             </div>
-            <button class="btn btn-outline-primary" type="button" (click)="mostrarLogin()">Login</button>
+            <button class="btn btn-outline-light" type="button" (click)="login()" *ngIf="!isLogged">Login</button>
+            <button class="btn btn-outline-light" type="button" (click)="logout()" *ngIf="isLogged">Logout</button>
         </div>
     </nav>
-    <app-login [ocultarComponenteLogin]="ocultarLoginInput"></app-login>
 </header>
