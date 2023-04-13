@@ -8,7 +8,7 @@ import { Educacion } from '../model/educacion';
 })
 export class SEducacionService {
 
-  expURL = 'http://localhost:8080/educacion/';
+  expURL = 'https://yoprogramo-springboot-51j8.onrender.com/educacion/';
 
   constructor(private httpClient : HttpClient) { }
 

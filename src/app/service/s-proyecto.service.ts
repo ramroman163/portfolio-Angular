@@ -9,7 +9,7 @@ import { Proyecto } from '../model/proyecto';
 
 export class SProyectoService{
 
-  expURL = 'http://localhost:8080/proyecto/';
+  expURL = 'https://yoprogramo-springboot-51j8.onrender.com/proyecto/';
 
   constructor(private httpClient : HttpClient) { }
 

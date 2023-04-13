@@ -8,7 +8,7 @@ import { Habilidad } from '../model/habilidad';
 })
 export class SHabilidadService {
 
-  expURL = 'http://localhost:8080/habilidad/';
+  expURL = 'https://yoprogramo-springboot-51j8.onrender.com/habilidad/';
 
   constructor(private httpClient : HttpClient) { }
 

@@ -8,7 +8,7 @@ import { Experiencia } from '../model/experiencia';
 })
 export class SExperienciaService {
 
-  expURL = 'http://localhost:8080/explab/';
+  expURL = 'https://yoprogramo-springboot-51j8.onrender.com/explab/';
 
   constructor(private httpClient : HttpClient) { }
 
