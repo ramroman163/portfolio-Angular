@@ -1,11 +1,11 @@
 export class Educacion {
     id! : number;
-    institucionEdu : string;
-    tituloEdu : string;
-    carreraEdu : string;
-    inicioEdu : string;
-    finEdu : string;
-    linkImg : string;
+    institucionEdu! : string;
+    tituloEdu! : string;
+    carreraEdu! : string;
+    inicioEdu! : string;
+    finEdu! : string;
+    linkImg! : string;
 
     constructor(institucionEdu : string, tituloEdu : string, carreraEdu : string, inicioEdu : string, finEdu : string, linkImg : string){
         this.institucionEdu = institucionEdu;

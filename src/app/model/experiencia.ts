@@ -1,10 +1,10 @@
 export class Experiencia {
     id! : number;
-    puestoExp : string;
-    lugarExp : string;
-    inicioExp : string;
-    finExp : string;
-    linkImg : string;
+    puestoExp! : string;
+    lugarExp! : string;
+    inicioExp! : string;
+    finExp! : string;
+    linkImg! : string;
 
     constructor(puestoExp : string, lugarExp : string, inicioExp : string, finExp : string, linkImg : string){
         this.puestoExp = puestoExp;

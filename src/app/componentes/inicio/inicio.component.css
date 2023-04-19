@@ -26,6 +26,7 @@
     height: fit-content;
     border: 1px solid grey;
     border-radius: 0 0 5px 5px;
+    padding: 1rem 1.5rem!important;
 }
 
 .inicio__informacion--perfil{
@@ -70,5 +71,9 @@
 @media screen and (max-width: 768px) {
     .inicio{
         height: auto;
+    }
+
+    .inicio__informacion{
+        padding: 1rem 1rem!important;
     }
 }
