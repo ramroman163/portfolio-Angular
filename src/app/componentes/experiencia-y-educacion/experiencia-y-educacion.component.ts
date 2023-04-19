@@ -11,8 +11,8 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./experiencia-y-educacion.component.css']
 })
 export class ExperienciaYEducacionComponent implements OnInit {
-  experiencia : Experiencia[] = [];
-  educacion : Educacion[] = [];
+  experiencia? : Experiencia[] = [];
+  educacion? : Educacion[] = [];
 
   constructor(private sExperiencia : SExperienciaService, private tokenService : TokenService, private sEducacion : SEducacionService){}
 

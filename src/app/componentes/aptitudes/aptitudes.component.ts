@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class AptitudesComponent implements OnInit {
   
-  habilidad : Habilidad[] = [];
+  habilidad? : Habilidad[] = [];
   
   constructor(private sHabilidad : SHabilidadService, private tokenService : TokenService) { }
   

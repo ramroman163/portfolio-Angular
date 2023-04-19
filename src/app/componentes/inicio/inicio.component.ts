@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit{
-  persona : Persona = null;
+  persona? : Persona = null;
 
   constructor(private sPersona : PersonaService, private tokenService : TokenService){}
 

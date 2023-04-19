@@ -21,6 +21,14 @@
                             <a [href]="itemProject.linkProyecto" class="btn btn-primary card-link">Link página</a>
                         </div>
                     </div>
+                    <div class="contenedor-editar" *ngIf="isLogged">
+                        <button class="btn btn-outline-secondary boton-editar" routerLink="/editproyecto/{{itemProject.id}}" *ngIf="isLogged">
+                            <i class="fa fa-pen"></i>
+                        </button>
+                        <button class="btn btn-outline-secondary eliminar-proyecto" (click)="onDelete(itemProject.id)" *ngIf="isLogged">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
                 </div>
             </li>
         </ul>
