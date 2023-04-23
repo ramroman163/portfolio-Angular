@@ -16,11 +16,30 @@
                 <h5 class="mb-3">{{ persona.profesion }}</h5>
                 <h5 class="mb-3">{{ persona.ubicacion }}</h5>
                 <div class="contenedor-botones">
-                    <button class="btn btn-primary me-2">Tengo interés en</button>
+                    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Contacto</button>
                     <button class="btn btn-secondary me-2">Añadir sección</button>
                     <button class="btn btn-secondary me-2">Más</button>
                 </div>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title fs-5" id="exampleModalLabel">Contacto</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h4>Teléfono</h4>
+              <p>{{ persona.telefono }}</p>
+              <h4>Email</h4>
+              <p>{{ persona.email }}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </section>

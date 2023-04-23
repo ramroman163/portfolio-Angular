@@ -29,6 +29,14 @@
                 <label for="acercaDeMi" class="form-label">Acerca de mi</label>
                 <input type="text" class="form-control" name="acercaDeMi" id="acercaDeMi" [(ngModel)]="persona.acercaDeMi" required>
             </div>
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="text" class="form-control" name="telefono" pattern="[0-9]{2} [0-9]{4}[-][0-9]{4}" id="telefono" [(ngModel)]="persona.telefono">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" id="email" [(ngModel)]="persona.email">
+            </div>
         </div>
         <button type="submit" class="btn btn-primary">Actualizar</button>
     </form>

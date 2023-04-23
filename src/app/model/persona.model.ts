@@ -7,8 +7,10 @@ export class Persona{
     linkImgPerfil: string;
     linkImgBanner: string;
     acercaDeMi! : string;
+    telefono : string;
+    email : string;
 
-    constructor(nombre: string, apellido: string, profesion : string, ubicacion : string, linkImgPerfil: string, linkImgBanner: string, acercaDeMi : string){
+    constructor(nombre: string, apellido: string, profesion : string, ubicacion : string, linkImgPerfil: string, linkImgBanner: string, acercaDeMi : string, telefono : string, email : string){
         this.nombre = nombre;
         this.apellido = apellido;
         this.profesion = profesion;
@@ -16,5 +18,7 @@ export class Persona{
         this.linkImgPerfil = linkImgPerfil;
         this.linkImgBanner = linkImgBanner;
         this.acercaDeMi = acercaDeMi;
+        this.telefono = telefono;
+        this.email = email;
     }
 }
